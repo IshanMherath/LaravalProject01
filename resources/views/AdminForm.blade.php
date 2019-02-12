@@ -7,6 +7,8 @@
 
 <html>
 <head>
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
@@ -40,7 +42,8 @@
 		
 <div class="col-md-6 col-md-offset-3" id="login">  
 
-<form>
+<form method="post" action="/saveTask">
+{{csrf_field()}}
 	
 <div class="form-group">
 <label class="user"> UserName:  </label>
@@ -77,48 +80,16 @@
     <br/><br/><br/>
     <a href="#" style="color: white; font-size: 15px; float: right; margin-right: 10px;"> Forget Password </a>
     <a href="#" style="color: white; font-size: 15px; float: right; margin-right: 10px;"> Register </a>
-
-
-
-
-
-
-
 </form>
-
-
-
-
-
   </div>
-
-
-
 	</div>
-
-
-
-
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+  @if(Session::has('message'))
+     toastr.info("{{Session::get('alert-type','message')}}");
+     @endif
+</script>
 	</body>
 	</html>

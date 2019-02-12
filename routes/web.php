@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +22,8 @@ Route::get('/log', function () {
     return view('logingForm');
 });
 
-Route::get('/admin', function () {
-    return view('AdminForm');
-});
-// Route::get('/main','MainController@index');
+
+Route::get('/about','LogingOneController@singUpData');
+
+Route::post('/saveTask','LogingOneController@saveTast');
+Route::post('/insert','Controller@insert');
